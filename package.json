@@ -1,0 +1,26 @@
+{
+  "name": "rest-api",
+  "version": "1.0.0",
+  "description": "study rest api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quangkhuat1995/study-REST-API.git"
+  },
+  "author": "Quang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quangkhuat1995/study-REST-API/issues"
+  },
+  "homepage": "https://github.com/quangkhuat1995/study-REST-API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
