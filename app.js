@@ -1,10 +1,13 @@
 const express = require("express");
 const app = express();
-const feedRouter = require("./routes/feed");
 const path = require("path");
 const multer = require("multer");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+
+const feedRouter = require("./routes/feed");
+const authRouter = require("./routes/auth");
+
 dotenv.config();
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -42,11 +45,12 @@ app.use((req, res, next) => {
 });
 
 app.use("/feed", feedRouter);
+app.use("/auth", authRouter);
 app.use((error, req, res, next) => {
   console.log(error);
   const status = error.statusCode || 500;
   const message = error.message;
-  res.status.json({ message: message });
+  res.status(status).json({ message: message, data: error.data });
 });
 
 mongoose
