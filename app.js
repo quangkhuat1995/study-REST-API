@@ -57,7 +57,11 @@ mongoose
   .connect(MONGODB_URI)
   .then(() => {
     console.log(`DB: Connected!`);
-    app.listen(5050);
+    const server = app.listen(5050);
+    const io = require("./socket").init(server);
+    io.on("connection", (socket) => {
+      console.log(`client connected ${socket.id}`);
+    });
   })
   .catch((err) => {
     console.log(`ERROR: Connected to db fail`);
